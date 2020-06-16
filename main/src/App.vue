@@ -1,11 +1,9 @@
 <template>
-  <div id="app">
-    <div id="micapp">
-      <ul class="mainapp-sidemenu">
-        <li @click="push('/subA')">subA</li>
-        <li @click="push('/subB')">subB</li>
-      </ul>
-    </div>
+  <div id="micapp">
+    <ul class="mainapp-sidemenu">
+      <li @click="push('/subA')">subA</li>
+      <li @click="push('/subB')">subB</li>
+    </ul>
   </div>
 </template>
 
