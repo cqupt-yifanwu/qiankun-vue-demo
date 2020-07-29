@@ -3,6 +3,7 @@
     <ul class="mainapp-sidemenu">
       <li @click="push('/subA')">subA</li>
       <li @click="push('/subB')">subB</li>
+      <li @click="push('/FinancialCal')">贷款计算器</li>
     </ul>
   </div>
 </template>

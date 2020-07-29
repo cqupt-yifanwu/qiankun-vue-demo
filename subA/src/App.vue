@@ -18,9 +18,7 @@ export default {
   name: 'App',
   methods: {
     click() {
-      debugger
-      const win = this.$refs.ifm.contentWindow
-      win.postMessage('test123', '*')
+      history.pushState(null, '/subB#/about', '/subB#/about')
     }
   }
 }

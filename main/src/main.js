@@ -23,11 +23,15 @@ registerMicroApps([
   },
   {
     name: 'subB',
-    // entry: 'http://1.192.127.107:9006/qiankun-subA',
     entry: '//localhost:9091',
     container: '#micapp',
     activeRule: genActiveRule('/subB')
-    // activeRule: '/qiankun-main/subA'
+  },
+  {
+    name: 'FinancialCal',
+    entry: 'http://1.192.127.107:9006/subC/FinancialCal',
+    container: '#micapp',
+    activeRule: '/FinancialCal'
   }
 ])
 
