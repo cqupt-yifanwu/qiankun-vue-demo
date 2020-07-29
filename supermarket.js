@@ -7,6 +7,8 @@ class SuperMarket {
 
         this.goodList = []
 
+        this.integral = 0;
+
         this.init();
     }
 
@@ -16,7 +18,7 @@ class SuperMarket {
             watermelon: 30,
             washingLiquid: 20,
             television: 1000,
-            refrigerator: 2000
+            refrigerator: 2350
         }
     }
 
@@ -57,20 +59,40 @@ class SuperMarket {
 
         this.goodList.push(good)
     }
+
+    // 促销商品分数计算
+    promotionCountCalculate (price) {
+
+    }
+
+    // 普通商品分数计算
+    normalCountCalculate (price) {
+        // 已经大于1000
+        if (this.integral > 1000) {
+            this.integral += Math.floor(price / 20)
+            return
+        }
+
+        if (this.integral + price > 1000) {
+            this.integral = 1000 + Math.floor((this.integral + price - 1000) / 20)
+            return
+        }
+
+        this.integral += price
+    }
     
     // 计算积分
     calculateIntegral () {
-        let integral = 0
         this.goodList.map(item => {
             if (this.promotionList.indexOf(item) > -1) {
-                integral += this.goodsMap[item] * 2
+                this.promotionCountCalculate(this.goodsMap[item])
             } else {
-                integral += this.goodsMap[item]
+                this.normalCountCalculate(this.goodsMap[item])
             }
             
         })
-        console.log(`您本次购买得到${integral}积分`)
-        return integral
+        console.log(`您本次购买得到${this.integral}积分`)
+        return this.integral
     }
 }
 
@@ -78,8 +100,7 @@ class SuperMarket {
 //  调用
 const superMarket = new SuperMarket()
 
-superMarket.addGood('apple')
-superMarket.addGood('watermelon')
-superMarket.addGood('washingLiquid')
+superMarket.addGood('refrigerator')
+
 
 superMarket.calculateIntegral()
