@@ -19,8 +19,8 @@ class SuperMarket {
             apple: 10,
             watermelon: 30,
             washingLiquid: 20,
-            television: 2000,
-            refrigerator: 2350
+            television: 800,
+            refrigerator: 2000
         }
     }
 
@@ -84,6 +84,13 @@ class SuperMarket {
 
         this.integral += price
     }
+
+    // 将促销商品前置
+    promotionFirst() {
+        this.goodList.sort((item) => {
+            return this.promotionList.indexOf(item)
+        })
+    }
     
     // 计算积分
     calculateIntegral () {
@@ -106,5 +113,5 @@ const superMarket = new SuperMarket()
 
 superMarket.addGood('television')
 
-
+console.log('test')
 superMarket.calculateIntegral()
